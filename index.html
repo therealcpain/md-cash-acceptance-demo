@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- goatcounter-site: mdcashaccept · instrumented 2026-09-21 -->
+  <script data-goatcounter="https://mdcashaccept.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <title>MD Cash Acceptance Clock — Oct 1 2026 essential cash (HB 191)</title>
+  <meta name="description" content="Paste Maryland shopper? yes/no, essentials category, amount band, time window, and view date. One shareable card: days until Oct 1 / live / not covered. Cite HB 191. Not legal advice. AG Consumer Protection after ≥2 compliance chances.">
+  <meta name="theme-color" content="#0b0f14">
+  <meta property="og:title" content="MD Cash Acceptance Clock">
+  <meta property="og:description" content="Maryland shopper? Days until Oct 1 cash-for-essentials acceptance. Cite HB 191. Not legal advice.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">$</div>
+        <div>
+          <h1>MD Cash Acceptance Clock</h1>
+          <p class="tagline">Paste MD shopper + category + amount + time + view date → days until Oct&nbsp;1 / live / not covered · share card.</p>
+        </div>
+      </div>
+      <span class="badge">Not legal advice</span>
+    </header>
+
+    <aside class="myth-banner" role="note">
+      <strong>Disclaimer.</strong>
+      This card is <em>effective-date literacy</em> —
+      <strong>not</strong> legal advice, <strong>not</strong> a merchant POS scrape, <strong>not</strong> a “cash is legal tender everywhere” meme, and <strong>not</strong> a private-lawsuit funnel.
+      We <strong>never invent</strong> a named store’s cash policy or allege a violation.
+      <strong>Distinct from</strong> MD Grocery Price Ban (HB&nbsp;895 personalized pricing ≠ HB&nbsp;191 cash acceptance) and from Parking App Fee (parking is <strong>out of scope</strong> here).
+      Public framing: Maryland <strong>HB&nbsp;191</strong> — between <strong>6&nbsp;a.m. and 10&nbsp;p.m.</strong>, for in-person retail totaling <strong>≥$5 and &lt;$300</strong>, merchants may not prohibit cash, require card-only, or surcharge cash for <strong>essential consumer goods</strong> (food incl. pet food; water/beverages; hygiene &amp; cleaning; medicine/medical/PPE; fuel).
+      Exceptions include phone/mail/internet; vending/kiosk; on-premises food/beverage (restaurants); gourmet/specialty food shops; membership-required fuel; parking. Merchants may refuse denominations <strong>&gt;$20</strong> or offer a <strong>fee-free</strong> on-site cash→prepaid device (must accept cash if the device fails).
+      Enforcement: <strong>AG Consumer Protection</strong> after <strong>≥2 compliance opportunities</strong> before civil fines — <strong>no private lawsuit CTA</strong> on this card.
+      Effective <strong>Oct&nbsp;1&nbsp;2026</strong>.
+      Sources:
+      <a href="https://mgaleg.maryland.gov/2026RS/bills/hb/hb0191e.pdf" target="_blank" rel="noopener noreferrer">HB 191 enrolled PDF</a>
+      ·
+      <a href="https://thebaynet.com/new-maryland-laws-october-2026/" target="_blank" rel="noopener noreferrer">The Bay Net Sep 5 2026</a>
+      ·
+      <a href="https://mgaleg.maryland.gov/2026RS/fnotes/bil_0001/hb0191.pdf" target="_blank" rel="noopener noreferrer">Fiscal &amp; policy note</a>.
+    </aside>
+
+    <section class="panel lookup" aria-labelledby="lookup-heading">
+      <h2 id="lookup-heading">1. Paste your purchase flags</h2>
+      <p class="hint">
+        User paste only — <strong>no</strong> store policy scrape.
+        Empty or missing fields → honest miss (we will not invent coverage or days left).
+        Never invent a named merchant’s cash policy.
+      </p>
+
+      <div class="field-grid four">
+        <div>
+          <label for="mdShopper">Maryland shopper?</label>
+          <select id="mdShopper">
+            <option value="">— select —</option>
+            <option value="yes">Yes — Maryland shopper</option>
+            <option value="no">No — not Maryland</option>
+          </select>
+        </div>
+        <div>
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="">— select —</option>
+            <option value="food">Food (incl. pet food)</option>
+            <option value="water">Water / beverages</option>
+            <option value="hygiene">Hygiene &amp; cleaning</option>
+            <option value="health">Health / medicine / PPE</option>
+            <option value="fuel">Fuel</option>
+            <option value="other">Other (not essentials)</option>
+          </select>
+        </div>
+        <div>
+          <label for="amountBand">Amount band</label>
+          <select id="amountBand">
+            <option value="">— select —</option>
+            <option value="under5">&lt;$5</option>
+            <option value="mid">$5 – &lt;$300</option>
+            <option value="over300">≥$300</option>
+          </select>
+        </div>
+        <div>
+          <label for="timeWindow">Time window</label>
+          <select id="timeWindow">
+            <option value="">— select —</option>
+            <option value="in">6am – 10pm</option>
+            <option value="out">Outside 6am–10pm</option>
+          </select>
+        </div>
+        <div>
+          <label for="viewDate">View date (when you’re looking)</label>
+          <input id="viewDate" type="date" required />
+        </div>
+        <div>
+          <label for="noteLabel">Note label (optional)</label>
+          <input id="noteLabel" type="text" maxlength="64" placeholder="e.g. MD grocery $40 · 2pm" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="cardBtn" onclick="window.goatcounter &amp;&amp; goatcounter.count({path: '/cta/generate', title: 'Generate card', event: true})">Show cash clock</button>
+        <button type="button" class="btn" id="clearBtn">Clear</button>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <h3 class="subhead">Seed examples (teaching dates)</h3>
+      <div class="seed-chips" id="seedChips" role="list" aria-label="Seed MD cash acceptance examples"></div>
+    </section>
+
+    <section class="panel card-panel" aria-labelledby="card-heading" id="cardSection" hidden>
+      <div class="card-toolbar">
+        <h2 id="card-heading">2. Shareable cash clock</h2>
+        <div class="actions">
+          <button type="button" class="btn" id="copySummary">Copy summary</button>
+          <button type="button" class="btn" id="shareBtn">Share link</button>
+          <button type="button" class="btn" id="pngBtn">Export PNG</button>
+        </div>
+      </div>
+
+      <!-- PRIMARY VISUAL: cash-acceptance countdown card — giant text-primary status -->
+      <article class="renewal-card" id="deadlineCard" aria-labelledby="dlHeadline">
+        <header class="card-head">
+          <div>
+            <p class="brand-line">MD Cash Acceptance Clock</p>
+            <p class="meta-line" id="cardMeta">—</p>
+            <h3 id="dlHeadline">Days until Oct 1 cash protection?</h3>
+          </div>
+          <div class="verdict" id="statusBadge">
+            <span class="verdict-k" id="statusPill">—</span>
+            <span class="verdict-s" id="statusSub">Text-labeled · not color-only</span>
+          </div>
+        </header>
+
+        <div class="hero-row">
+          <div class="hero-stat cy-lead">
+            <span class="hero-kicker">Your cash clock</span>
+            <div class="face-allin-line" aria-label="Status badge">
+              <span class="face-was"><span class="face-was-k">View date</span> <span id="viewDateDisp">—</span></span>
+              <span class="face-arrow" aria-hidden="true">→</span>
+              <span class="hero-value" id="daysDisp">—</span>
+            </div>
+            <span class="hero-sub" id="deadlineLine">Cash rule effective Oct 1 2026 · HB 191</span>
+          </div>
+          <div class="hero-stat fee ring-stat">
+            <span class="hero-kicker">Status badge</span>
+            <div class="ring-wrap" aria-hidden="true">
+              <div class="fee-ring" id="daysRing" style="--pct:0"></div>
+              <div class="ring-center">
+                <span class="hero-value" id="daysRingDisp">—</span>
+              </div>
+            </div>
+            <span class="hero-sub" id="windowLine">—</span>
+          </div>
+        </div>
+
+        <p class="look-enroll-flag" id="actionFlag" aria-live="polite">—</p>
+
+        <p class="look-enroll-flag" id="scopeChipStrip" aria-live="polite">
+          Covered essentials · $5–&lt;$300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash
+        </p>
+
+        <p class="look-enroll-flag warn" id="exceptionStrip" aria-live="polite">
+          Out of scope / exceptions: restaurants · vending · online · membership fuel · parking · &gt;$20 bills may be refused · fee-free prepaid machine OK if it works
+        </p>
+
+        <p class="look-enroll-flag" id="enforceStrip" aria-live="polite">
+          Maryland HB 191 · AG Consumer Protection · ≥2 compliance opportunities before civil fines · no private lawsuit CTA on this card
+        </p>
+
+        <div class="receipt-strip four" id="receiptStrip" aria-label="Status breakdown">
+          <div class="r-item"><span class="r-k">MD shopper?</span><span class="r-v" id="rMd">—</span></div>
+          <div class="r-item"><span class="r-k">Category</span><span class="r-v" id="rCategory">—</span></div>
+          <div class="r-item"><span class="r-k">Amount / time</span><span class="r-v" id="rAmountTime">—</span></div>
+          <div class="r-item"><span class="r-k">Status</span><span class="r-v" id="rStatus">—</span></div>
+        </div>
+
+        <p class="decoder-line" id="decoderLine">—</p>
+        <p class="action-line" id="actionLine">—</p>
+        <p class="cite-line" id="citeLine">—</p>
+
+        <footer class="card-foot">
+          <span>User-pasted chips · no merchant scrape</span>
+          <span>Not legal advice · AG after ≥2 chances · never invent store policy</span>
+        </footer>
+      </article>
+
+      <div class="share-box" id="shareBox" hidden>
+        <label for="shareUrl">Share URL (hash restores your pasted fields)</label>
+        <div class="row">
+          <input id="shareUrl" type="text" readonly />
+          <button type="button" class="btn" id="copyShare" style="flex:0 0 auto">Copy</button>
+        </div>
+        <p class="hint">Append UTM when you post, e.g. <code>?utm_source=reddit&amp;utm_medium=organic&amp;utm_campaign=md_cash_acceptance_mvp</code></p>
+      </div>
+
+      <div class="source-links" id="sourceLinks"></div>
+    </section>
+
+    <section class="panel legend" aria-labelledby="legend-heading">
+      <h2 id="legend-heading">How to read the card</h2>
+      <ul class="legend-list">
+        <li><span class="pill allin">Giant status</span> Text-primary (not color-only): <strong>days until Oct&nbsp;1</strong> / <strong>live</strong> / <strong>not covered</strong> (non-MD / category / amount / hours).</li>
+        <li><span class="pill fee">Scope chip</span> Food · water · hygiene · health/PPE · fuel · <strong>$5–&lt;$300</strong> · <strong>6am–10pm</strong>: merchant generally may not refuse cash, require card-only, or surcharge cash for covered essentials.</li>
+        <li><span class="pill claim">Exceptions</span> Restaurants · vending · online · membership fuel · parking · <strong>&gt;$20</strong> bills may be refused · fee-free cash→prepaid machine OK if it works.</li>
+        <li><strong>Enforcement</strong> Maryland HB&nbsp;191 + AG Consumer Protection after <strong>≥2 compliance opportunities</strong>; <strong>no private lawsuit CTA</strong> on this card.</li>
+        <li><strong>Distinct</strong> from MD Grocery Price Ban (HB&nbsp;895) and from Parking App Fee (parking out of scope).</li>
+        <li><strong>No invented store policy.</strong> Empty fields = honest miss. No POS scrape. Never claim “legal tender everywhere.”</li>
+      </ul>
+    </section>
+
+    <div class="ad-slot" aria-hidden="true">
+      <span class="ad-label">Ad slot (placeholder — AdSense later)</span>
+      <p>Inventory under the clock card + “when must Maryland stores take cash for essentials?” explainer · brand-safe display only · never inside PNG · not legal advice · hard-avoid class-action lead-gen · AG after ≥2 compliance chances only</p>
+    </div>
+
+    <footer>
+      <strong>MD Cash Acceptance Clock</strong> — effective-date-honest share card for Maryland’s HB&nbsp;191 cash-for-essentials acceptance rule.
+      <ul>
+        <li>MD shopper? · category · amount · time · view date → cash clock card</li>
+        <li>User paste only · zero scrape · not legal advice · AG after ≥2 chances · never invent store policy</li>
+        <li>Free utility · ad-supported path (see README) · no paywall</li>
+      </ul>
+    </footer>
+    <canvas id="pngCanvas" width="900" height="1200" hidden aria-hidden="true"></canvas>
+  </div>
+</body>
+</html>
