@@ -1,14 +1,16 @@
 /**
  * MD Cash Acceptance Clock — paste (1) Maryland shopper? yes/no,
  * (2) category: food / water / hygiene / health / fuel / other,
- * (3) amount band: <$5 / $5–<$300 / ≥$300,
+ * (3) amount band: < $300 (covered) / ≥ $300 (not covered),
  * (4) time: 6am–10pm / outside,
  * (5) view date → one shareable card:
  * days until Oct 1 / live / not covered.
  * Brand: MD Cash Acceptance Clock only. User-pasted chips; no merchant scrape.
  * Never invents a named store’s cash policy. No “legal tender everywhere” framing.
  * Distinct from MD Grocery Price Ban (HB 895) and Parking App Fee.
- * Not legal advice. AG Consumer Protection after ≥2 compliance chances — no lawsuit CTA.
+ * Parking isn’t an essential good, so it is out of scope for that reason.
+ * Not legal advice. AG Consumer Protection Division after at least two
+ * opportunities to comply — up to $500, then up to $1,000. No lawsuit CTA.
  */
 (function () {
   "use strict";
@@ -26,19 +28,22 @@
   const EFFECTIVE_LABEL = "Oct 1 2026";
 
   const CITE_ONE_LINER =
-    "Maryland HB 191 enrolled: between 6 a.m. and 10 p.m., for in-person retail totaling ≥$5 and <$300, merchants may not prohibit cash, require credit/debit, or charge a higher cash price for essential consumer goods (food incl. pet food; water/beverages; hygiene & cleaning; medicine/medical/PPE; fuel). Exceptions: phone/mail/internet; vending/kiosk; on-premises food/beverage; gourmet/specialty food shops; membership-required fuel; parking. Merchants may refuse denominations >$20 or offer a fee-free on-site cash→prepaid device (must accept cash if device fails). AG Consumer Protection: ≥2 compliance opportunities before civil fines. Shall take effect October 1, 2026. The Bay Net Sep 5 2026 digest. Not legal advice. We never invent a named store’s cash policy.";
+    "Maryland HB 191 (Chapter 714 of 2026): between 6 a.m. and 10 p.m., for in-person retail of essential consumer goods totaling less than $300, merchants may not prohibit cash, require credit/debit, or charge a higher cash price (food incl. pet food; water/beverages; hygiene & cleaning; medicine/medical/PPE; fuel). A merchant may collect up to 4 cents extra when rounding a cash price under applicable law. Statutory exceptions: phone/mail/internet sales; vending machines/kiosks; merchants primarily selling food or beverages for on-premises consumption or a limited variety of gourmet/specialty foods; fuel sold where membership is required. Parking isn’t an essential good, so it’s out of scope for that reason. Merchants may refuse denominations >$20 or offer a fee-free on-site cash→prepaid device (must accept cash if device fails). AG Consumer Protection Division: after at least two opportunities to comply, up to $500 per violation, then up to $1,000 per subsequent violation. Shall take effect October 1, 2026. The Bay Net Sep 5 2026 digest. Not legal advice. We never invent a named store’s cash policy.";
 
   const DISCLAIMER_SHORT =
-    "Not legal advice. Maryland HB 191 literacy only — not a merchant scrape, not a lawsuit funnel, not “cash is legal tender everywhere.” AG Consumer Protection after ≥2 compliance opportunities. Restaurants / vending / online / membership fuel / parking and <$5 / ≥$300 / outside 6am–10pm may be out of scope. We never invent a named store’s cash policy.";
+    "Not legal advice. Maryland HB 191 literacy only — not a merchant scrape, not a lawsuit funnel, not “cash is legal tender everywhere.” AG Consumer Protection Division after at least two opportunities to comply: up to $500 per violation, then up to $1,000 per subsequent violation. Phone/mail/internet, vending/kiosk, on-premises or gourmet/specialty food merchants, membership-required fuel, totals ≥ $300, and hours outside 6am–10pm may be out of scope. Parking isn’t an essential good. A merchant may collect up to 4 cents extra when rounding a cash price under applicable law. We never invent a named store’s cash policy.";
 
   const SCOPE_CHIP =
-    "Covered essentials · $5–<$300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash";
+    "Covered essentials · < $300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash";
 
   const EXCEPTION_STRIP =
-    "Out of scope / exceptions: restaurants · vending · online · membership fuel · parking · >$20 bills may be refused · fee-free prepaid machine OK if it works";
+    "Statutory exceptions: phone/mail/internet · vending machines/kiosks · on-premises food/beverage or limited gourmet/specialty foods · membership-required fuel · >$20 bills may be refused · fee-free prepaid machine OK if it works";
+
+  const ROUNDING_NOTE =
+    "A merchant may collect up to 4 cents extra when rounding a cash price under applicable law.";
 
   const FOOTER_ENFORCEMENT =
-    "Maryland HB 191 · AG Consumer Protection · ≥2 compliance opportunities before civil fines · no private lawsuit CTA on this card";
+    "Maryland HB 191 · AG Consumer Protection Division · after at least two opportunities to comply, up to $500 per violation, then up to $1,000 per subsequent violation · no private lawsuit CTA on this card";
 
   const COVERED_CATEGORIES = {
     food: true,
@@ -54,10 +59,10 @@
     {
       id: "md-grocery-40-2pm",
       label: "MD grocery $40 · 2pm · Sep 21",
-      sub: "Teaching · food · mid band · in window · countdown",
+      sub: "Teaching · food · < $300 · in window · countdown",
       mdShopper: "yes",
       category: "food",
-      amountBand: "mid",
+      amountBand: "under300",
       timeWindow: "in",
       viewDate: "2026-09-21",
       noteLabel: "MD grocery $40 · 2pm teaching seed",
@@ -65,10 +70,10 @@
     {
       id: "live-oct5",
       label: "Live · Oct 5 grocery",
-      sub: "Teaching · MD food · mid · in window · post-effective",
+      sub: "Teaching · MD food · < $300 · in window · post-effective",
       mdShopper: "yes",
       category: "food",
-      amountBand: "mid",
+      amountBand: "under300",
       timeWindow: "in",
       viewDate: "2026-10-05",
       noteLabel: "Live teaching seed",
@@ -79,7 +84,7 @@
       sub: "Teaching · residency out",
       mdShopper: "no",
       category: "food",
-      amountBand: "mid",
+      amountBand: "under300",
       timeWindow: "in",
       viewDate: "2026-09-21",
       noteLabel: "Non-MD teaching seed",
@@ -90,21 +95,21 @@
       sub: "Teaching · category out of essentials",
       mdShopper: "yes",
       category: "other",
-      amountBand: "mid",
+      amountBand: "under300",
       timeWindow: "in",
       viewDate: "2026-09-21",
       noteLabel: "Other-category teaching seed",
     },
     {
-      id: "under5",
-      label: "Under $5 · not covered",
-      sub: "Teaching · amount band out",
+      id: "small-purchase",
+      label: "Under $5 · covered",
+      sub: "Teaching · small total still in the < $300 band",
       mdShopper: "yes",
       category: "food",
-      amountBand: "under5",
+      amountBand: "under300",
       timeWindow: "in",
       viewDate: "2026-09-21",
-      noteLabel: "Under-$5 teaching seed",
+      noteLabel: "Under $5 covered teaching seed",
     },
     {
       id: "outside-hours",
@@ -112,7 +117,7 @@
       sub: "Teaching · time window out",
       mdShopper: "yes",
       category: "fuel",
-      amountBand: "mid",
+      amountBand: "under300",
       timeWindow: "out",
       viewDate: "2026-09-21",
       noteLabel: "Outside-hours teaching seed",
@@ -123,7 +128,7 @@
       sub: "Teaching · honest miss",
       mdShopper: "yes",
       category: "food",
-      amountBand: "mid",
+      amountBand: "under300",
       timeWindow: "in",
       viewDate: "",
       noteLabel: "Empty-date teaching seed",
@@ -134,7 +139,7 @@
       sub: "Teaching · health category in scope",
       mdShopper: "yes",
       category: "health",
-      amountBand: "mid",
+      amountBand: "under300",
       timeWindow: "in",
       viewDate: "2026-09-21",
       noteLabel: "Health/PPE teaching seed",
@@ -222,7 +227,7 @@
       other: {
         short: "Other (not essentials)",
         inScope: false,
-        line: "You marked other. This card’s MD cash clock covers listed essentials only — we do not invent that cash must be accepted for non-essentials.",
+        line: "You marked other. This card’s MD cash clock covers listed essentials only. Parking isn’t an essential good, so it’s out of scope for that reason — we do not invent that cash must be accepted for non-essentials.",
       },
     };
     return map[flag] || map.other;
@@ -230,20 +235,15 @@
 
   function amountMeta(flag) {
     const map = {
-      under5: {
-        short: "<$5",
-        inScope: false,
-        line: "Amount band <$5 is outside HB 191’s ≥$5 and <$300 band.",
-      },
-      mid: {
-        short: "$5 – <$300",
+      under300: {
+        short: "< $300",
         inScope: true,
-        line: "Amount band $5–<$300 is inside HB 191’s coverage band.",
+        line: "Amount band < $300 is inside HB 191’s coverage (in-person retail totaling less than $300).",
       },
       over300: {
-        short: "≥$300",
+        short: "≥ $300",
         inScope: false,
-        line: "Amount band ≥$300 is outside HB 191’s ≥$5 and <$300 band.",
+        line: "Amount band ≥ $300 is outside HB 191’s less-than-$300 coverage.",
       },
     };
     return map[flag] || { short: "—", inScope: false, line: "" };
@@ -289,7 +289,7 @@
         daysLabel: "Not covered (category)",
         headline: "Not covered — category outside essentials",
         flag:
-          "NOT COVERED · category out · HB 191 targets listed essential consumer goods · restaurants / vending / online / membership fuel / parking also out of scope · we do not invent coverage",
+          "NOT COVERED · category out · HB 191 targets listed essential consumer goods · parking isn’t an essential good, so it’s out of scope for that reason · we do not invent coverage",
       };
     }
     if (phase === "not_covered_amount") {
@@ -297,12 +297,12 @@
         phase: phase,
         pill: "Not covered (amount)",
         cls: "danger",
-        sub: "Amount outside ≥$5 and <$300 band",
+        sub: "Amount ≥ $300 (coverage is less than $300)",
         ringLabel: "OUT",
         daysLabel: "Not covered (amount)",
-        headline: "Not covered — amount outside band",
+        headline: "Not covered — amount ≥ $300",
         flag:
-          "NOT COVERED · amount band out · HB 191 covers in-person retail totaling ≥$5 and <$300 · we do not invent coverage outside that band",
+          "NOT COVERED · amount band out · HB 191 covers in-person retail of essential goods totaling less than $300 · we do not invent coverage at or above $300",
       };
     }
     if (phase === "not_covered_hours") {
@@ -337,7 +337,7 @@
           n +
           " calendar day" +
           (n === 1 ? "" : "s") +
-          " until Oct 1 2026 · after effective date, merchant generally may not refuse cash / require card-only / surcharge cash for covered essentials in-band · exceptions exist",
+          " until Oct 1 2026 · after effective date, merchant generally may not refuse cash / require card-only / surcharge cash for covered essentials totaling less than $300 · exceptions exist",
       };
     }
     // live (daysLeft <= 0)
@@ -358,7 +358,7 @@
       flag:
         "LIVE · HB 191 effective " +
         EFFECTIVE_LABEL +
-        " · covered essentials · $5–<$300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash · >$20 bills / prepaid machine / restaurant exceptions may still apply · AG after ≥2 compliance chances",
+        " · covered essentials · < $300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash · up to 4 cents extra when rounding a cash price under applicable law · >$20 bills / fee-free prepaid machine / statutory exceptions may still apply · AG Consumer Protection Division after at least two opportunities to comply: up to $500 per violation, then up to $1,000",
     };
   }
 
@@ -372,12 +372,8 @@
     if (!(input.category in COVERED_CATEGORIES)) {
       return "Pick a category: food / water / hygiene / health / fuel / other. Empty = honest miss.";
     }
-    if (
-      input.amountBand !== "under5" &&
-      input.amountBand !== "mid" &&
-      input.amountBand !== "over300"
-    ) {
-      return "Pick an amount band: <$5 / $5–<$300 / ≥$300. Empty = honest miss.";
+    if (input.amountBand !== "under300" && input.amountBand !== "over300") {
+      return "Pick an amount band: < $300 / ≥ $300. Empty = honest miss.";
     }
     if (input.timeWindow !== "in" && input.timeWindow !== "out") {
       return "Pick a time window: 6am–10pm / outside. Empty = honest miss.";
@@ -420,19 +416,19 @@
       phase === "not_covered_md"
         ? "You marked you are not a Maryland shopper. HB 191 is a Maryland statute. This card does not invent that another state’s cash rule applies. Distinct from MD Grocery Price Ban (HB 895) and from Parking App Fee."
         : phase === "not_covered_category"
-          ? "You marked a category outside listed essentials. HB 191 covers food, water/beverages, hygiene & cleaning, medicine/medical/PPE, and fuel — not a blanket “cash everywhere” rule. Restaurants, vending, online, membership fuel, and parking are also out of scope."
+          ? "You marked a category outside listed essentials. HB 191 covers food, water/beverages, hygiene & cleaning, medicine/medical/PPE, and fuel — not a blanket “cash everywhere” rule. Parking isn’t an essential good, so it’s out of scope for that reason. Statutory exceptions: phone/mail/internet sales; vending machines/kiosks; on-premises food or beverage or a limited variety of gourmet/specialty foods; fuel sold where membership is required."
           : phase === "not_covered_amount"
-            ? "Your amount band is outside ≥$5 and <$300. HB 191’s cash-acceptance rule for essentials applies inside that band only. We do not invent coverage for under-$5 or ≥$300 tickets."
+            ? "Your amount band is ≥ $300. HB 191’s cash-acceptance rule applies to in-person retail of essential goods totaling less than $300. We do not invent coverage at or above $300."
             : phase === "not_covered_hours"
               ? "Your time is outside 6 a.m.–10 p.m. HB 191’s covered hours are that window only. We do not invent overnight cash-acceptance coverage."
               : phase === "live"
-                ? "HB 191 is effective. For covered essentials in-band during 6am–10pm, merchants generally may not refuse cash, require card-only, or surcharge cash. Exceptions (restaurants / vending / online / membership fuel / parking) and >$20 bill / fee-free prepaid-machine rules still apply. Enforcement is AG Consumer Protection after ≥2 compliance opportunities — this card is not a lawsuit form."
+                ? "HB 191 is effective. For covered essentials totaling less than $300 during 6am–10pm, merchants generally may not refuse cash, require card-only, or surcharge cash. A merchant may collect up to 4 cents extra when rounding a cash price under applicable law. Statutory exceptions (phone/mail/internet, vending/kiosk, on-premises or gourmet/specialty food, membership-required fuel) and >$20 bill / fee-free prepaid-machine rules still apply. Enforcement is the AG Consumer Protection Division after at least two opportunities to comply: up to $500 per violation, then up to $1,000 per subsequent violation. This card is not a lawsuit form."
                 : "HB 191 takes effect " +
                   EFFECTIVE_LABEL +
-                  ". Until then this card is calendar literacy — not a complaint form. In-scope: listed essentials · $5–<$300 · 6am–10pm. Exceptions mean this is not “cash is legal tender everywhere.”";
+                  ". Until then this card is calendar literacy — not a complaint form. In-scope: listed essentials · < $300 · 6am–10pm. A merchant may collect up to 4 cents extra when rounding a cash price under applicable law. Statutory exceptions mean this is not “cash is legal tender everywhere.”";
 
     const action =
-      "Calm next step: read HB 191 enrolled PDF + Bay Net Sep 5 2026 + fiscal note. Questions about enforcement → Maryland AG Consumer Protection (after ≥2 compliance opportunities). This card is not legal advice and not a private-lawsuit funnel.";
+      "Calm next step: read HB 191 enrolled PDF + Bay Net Sep 5 2026 + fiscal note. Questions about enforcement → Maryland AG Consumer Protection Division (after at least two opportunities to comply: up to $500 per violation, then up to $1,000 per subsequent violation). This card is not legal advice and not a private-lawsuit funnel.";
 
     return {
       mdShopper: input.mdShopper,
@@ -452,6 +448,7 @@
       clock: clock,
       pct: pct,
       scopeChip: SCOPE_CHIP,
+      roundingNote: ROUNDING_NOTE,
       exceptionStrip: EXCEPTION_STRIP,
       footerEnforcement: FOOTER_ENFORCEMENT,
       decoder: decoder,
@@ -507,7 +504,7 @@
       return {
         mdShopper: raw.md || "",
         category: raw.cat || "",
-        amountBand: raw.amt || "",
+        amountBand: raw.amt === "mid" ? "under300" : raw.amt || "",
         timeWindow: raw.tm || "",
         viewDate: raw.v || "",
         noteLabel: raw.n || "",
@@ -567,6 +564,7 @@
     $("actionFlag").className =
       "look-enroll-flag" + (c.clock.cls ? " " + c.clock.cls : "");
     $("scopeChipStrip").textContent = c.scopeChip;
+    $("roundingStrip").textContent = c.roundingNote;
     $("exceptionStrip").textContent = c.exceptionStrip;
     $("enforceStrip").textContent = c.footerEnforcement;
 
@@ -613,6 +611,7 @@
       "Time: " + c.timeLabel,
       "View date: " + fmtDate(c.viewDate),
       c.scopeChip,
+      c.roundingNote,
       c.exceptionStrip,
       c.footerEnforcement,
       DISCLAIMER_SHORT,
@@ -713,7 +712,7 @@
     const canvas = $("pngCanvas");
     const ctx = canvas.getContext("2d");
     const W = 900;
-    const H = 1200;
+    const H = 1500;
     canvas.width = W;
     canvas.height = H;
 
@@ -756,6 +755,11 @@
     ctx.fillStyle = "#7eb8e8";
     ctx.font = "600 16px IBM Plex Sans, system-ui, sans-serif";
     y = wrapText(ctx, c.scopeChip, 48, y, W - 96, 24);
+
+    y += 16;
+    ctx.fillStyle = "#8b9aab";
+    ctx.font = "400 15px IBM Plex Sans, system-ui, sans-serif";
+    y = wrapText(ctx, c.roundingNote, 48, y, W - 96, 22);
 
     y += 20;
     ctx.fillStyle = "#f0b429";
@@ -805,15 +809,21 @@
     ctx.font = "600 14px IBM Plex Sans, system-ui, sans-serif";
     y = wrapText(ctx, DISCLAIMER_SHORT, 48, y, W - 96, 20);
 
+    y += 36;
     ctx.fillStyle = "#8b9aab";
     ctx.font = "400 12px IBM Plex Sans, system-ui, sans-serif";
     ctx.fillText(
       "User-pasted chips only · no merchant scrape · ≠ legal tender everywhere · ≠ HB 895 grocery ban",
       48,
-      H - 36
+      y
     );
 
-    canvas.toBlob(function (blob) {
+    const usedH = Math.min(H, Math.ceil(y + 40));
+    const out = document.createElement("canvas");
+    out.width = W;
+    out.height = usedH;
+    out.getContext("2d").drawImage(canvas, 0, 0, W, usedH, 0, 0, W, usedH);
+    out.toBlob(function (blob) {
       if (!blob) {
         $("status").textContent = "PNG export failed.";
         return;
@@ -936,6 +946,7 @@
       DISCLAIMER_SHORT: DISCLAIMER_SHORT,
       CITE_ONE_LINER: CITE_ONE_LINER,
       SCOPE_CHIP: SCOPE_CHIP,
+      ROUNDING_NOTE: ROUNDING_NOTE,
       EXCEPTION_STRIP: EXCEPTION_STRIP,
       FOOTER_ENFORCEMENT: FOOTER_ENFORCEMENT,
     };

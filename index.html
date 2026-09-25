@@ -7,7 +7,7 @@
   <script data-goatcounter="https://mdcashaccept.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
   <title>MD Cash Acceptance Clock — Oct 1 2026 essential cash (HB 191)</title>
-  <meta name="description" content="Paste Maryland shopper? yes/no, essentials category, amount band, time window, and view date. One shareable card: days until Oct 1 / live / not covered. Cite HB 191. Not legal advice. AG Consumer Protection after ≥2 compliance chances.">
+  <meta name="description" content="Paste Maryland shopper? yes/no, essentials category, amount (&lt; $300 or ≥ $300), time window, and view date. One shareable card: days until Oct 1 / live / not covered. Cite HB 191. Not legal advice. AG Consumer Protection Division after at least two opportunities to comply.">
   <meta name="theme-color" content="#0b0f14">
   <meta property="og:title" content="MD Cash Acceptance Clock">
   <meta property="og:description" content="Maryland shopper? Days until Oct 1 cash-for-essentials acceptance. Cite HB 191. Not legal advice.">
@@ -36,10 +36,13 @@
       This card is <em>effective-date literacy</em> —
       <strong>not</strong> legal advice, <strong>not</strong> a merchant POS scrape, <strong>not</strong> a “cash is legal tender everywhere” meme, and <strong>not</strong> a private-lawsuit funnel.
       We <strong>never invent</strong> a named store’s cash policy or allege a violation.
-      <strong>Distinct from</strong> MD Grocery Price Ban (HB&nbsp;895 personalized pricing ≠ HB&nbsp;191 cash acceptance) and from Parking App Fee (parking is <strong>out of scope</strong> here).
-      Public framing: Maryland <strong>HB&nbsp;191</strong> — between <strong>6&nbsp;a.m. and 10&nbsp;p.m.</strong>, for in-person retail totaling <strong>≥$5 and &lt;$300</strong>, merchants may not prohibit cash, require card-only, or surcharge cash for <strong>essential consumer goods</strong> (food incl. pet food; water/beverages; hygiene &amp; cleaning; medicine/medical/PPE; fuel).
-      Exceptions include phone/mail/internet; vending/kiosk; on-premises food/beverage (restaurants); gourmet/specialty food shops; membership-required fuel; parking. Merchants may refuse denominations <strong>&gt;$20</strong> or offer a <strong>fee-free</strong> on-site cash→prepaid device (must accept cash if the device fails).
-      Enforcement: <strong>AG Consumer Protection</strong> after <strong>≥2 compliance opportunities</strong> before civil fines — <strong>no private lawsuit CTA</strong> on this card.
+      <strong>Distinct from</strong> MD Grocery Price Ban (HB&nbsp;895 personalized pricing ≠ HB&nbsp;191 cash acceptance) and from Parking App Fee.
+      Parking isn’t an essential good, so it’s <strong>out of scope for that reason</strong>.
+      Public framing: Maryland <strong>HB&nbsp;191</strong> (Chapter 714 of 2026) — between <strong>6&nbsp;a.m. and 10&nbsp;p.m.</strong>, for in-person retail of essential goods totaling <strong>less than $300</strong>, merchants may not prohibit cash, require card-only, or surcharge cash for <strong>essential consumer goods</strong> (food incl. pet food; water/beverages; hygiene &amp; cleaning; medicine/medical/PPE; fuel).
+      A merchant may collect up to <strong>4 cents</strong> extra when rounding a cash price under applicable law.
+      Statutory exceptions: phone/mail/internet sales; vending machines/kiosks; merchants primarily selling food or beverages for on-premises consumption or a limited variety of gourmet/specialty foods; fuel sold where membership is required.
+      Merchants may refuse denominations <strong>&gt;$20</strong> or offer a <strong>fee-free</strong> on-site cash→prepaid device (must accept cash if the device fails).
+      Enforcement: <strong>AG Consumer Protection Division</strong> — after at least <strong>two opportunities to comply</strong>, up to <strong>$500</strong> per violation, then up to <strong>$1,000</strong> per subsequent violation — <strong>no private lawsuit CTA</strong> on this card.
       Effective <strong>Oct&nbsp;1&nbsp;2026</strong>.
       Sources:
       <a href="https://mgaleg.maryland.gov/2026RS/bills/hb/hb0191e.pdf" target="_blank" rel="noopener noreferrer">HB 191 enrolled PDF</a>
@@ -82,9 +85,8 @@
           <label for="amountBand">Amount band</label>
           <select id="amountBand">
             <option value="">— select —</option>
-            <option value="under5">&lt;$5</option>
-            <option value="mid">$5 – &lt;$300</option>
-            <option value="over300">≥$300</option>
+            <option value="under300">&lt; $300</option>
+            <option value="over300">≥ $300</option>
           </select>
         </div>
         <div>
@@ -164,15 +166,19 @@
         <p class="look-enroll-flag" id="actionFlag" aria-live="polite">—</p>
 
         <p class="look-enroll-flag" id="scopeChipStrip" aria-live="polite">
-          Covered essentials · $5–&lt;$300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash
+          Covered essentials · &lt; $300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash
+        </p>
+
+        <p class="look-enroll-flag" id="roundingStrip" aria-live="polite">
+          A merchant may collect up to 4 cents extra when rounding a cash price under applicable law.
         </p>
 
         <p class="look-enroll-flag warn" id="exceptionStrip" aria-live="polite">
-          Out of scope / exceptions: restaurants · vending · online · membership fuel · parking · &gt;$20 bills may be refused · fee-free prepaid machine OK if it works
+          Statutory exceptions: phone/mail/internet · vending machines/kiosks · on-premises food/beverage or limited gourmet/specialty foods · membership-required fuel · &gt;$20 bills may be refused · fee-free prepaid machine OK if it works
         </p>
 
         <p class="look-enroll-flag" id="enforceStrip" aria-live="polite">
-          Maryland HB 191 · AG Consumer Protection · ≥2 compliance opportunities before civil fines · no private lawsuit CTA on this card
+          Maryland HB 191 · AG Consumer Protection Division · after at least two opportunities to comply, up to $500 per violation, then up to $1,000 per subsequent violation · no private lawsuit CTA on this card
         </p>
 
         <div class="receipt-strip four" id="receiptStrip" aria-label="Status breakdown">
@@ -188,7 +194,7 @@
 
         <footer class="card-foot">
           <span>User-pasted chips · no merchant scrape</span>
-          <span>Not legal advice · AG after ≥2 chances · never invent store policy</span>
+          <span>Not legal advice · AG after at least two chances · up to $500 then $1,000 · never invent store policy</span>
         </footer>
       </article>
 
@@ -208,17 +214,18 @@
       <h2 id="legend-heading">How to read the card</h2>
       <ul class="legend-list">
         <li><span class="pill allin">Giant status</span> Text-primary (not color-only): <strong>days until Oct&nbsp;1</strong> / <strong>live</strong> / <strong>not covered</strong> (non-MD / category / amount / hours).</li>
-        <li><span class="pill fee">Scope chip</span> Food · water · hygiene · health/PPE · fuel · <strong>$5–&lt;$300</strong> · <strong>6am–10pm</strong>: merchant generally may not refuse cash, require card-only, or surcharge cash for covered essentials.</li>
-        <li><span class="pill claim">Exceptions</span> Restaurants · vending · online · membership fuel · parking · <strong>&gt;$20</strong> bills may be refused · fee-free cash→prepaid machine OK if it works.</li>
-        <li><strong>Enforcement</strong> Maryland HB&nbsp;191 + AG Consumer Protection after <strong>≥2 compliance opportunities</strong>; <strong>no private lawsuit CTA</strong> on this card.</li>
-        <li><strong>Distinct</strong> from MD Grocery Price Ban (HB&nbsp;895) and from Parking App Fee (parking out of scope).</li>
+        <li><span class="pill fee">Scope chip</span> Food · water · hygiene · health/PPE · fuel · <strong>&lt; $300</strong> · <strong>6am–10pm</strong>: merchant generally may not refuse cash, require card-only, or surcharge cash for covered essentials. Totals <strong>≥ $300</strong> are not covered.</li>
+        <li><span class="pill claim">Rounding</span> A merchant may collect up to <strong>4 cents</strong> extra when rounding a cash price under applicable law.</li>
+        <li><span class="pill claim">Exceptions</span> Phone/mail/internet sales · vending machines/kiosks · on-premises food/beverage or a limited variety of gourmet/specialty foods · fuel sold where membership is required · <strong>&gt;$20</strong> bills may be refused · fee-free cash→prepaid machine OK if it works.</li>
+        <li><strong>Enforcement</strong> Maryland HB&nbsp;191 · AG Consumer Protection Division after at least <strong>two opportunities to comply</strong>: up to <strong>$500</strong> per violation, then up to <strong>$1,000</strong> per subsequent violation. <strong>No private lawsuit CTA</strong> on this card.</li>
+        <li><strong>Distinct</strong> from MD Grocery Price Ban (HB&nbsp;895) and from Parking App Fee. Parking isn’t an essential good, so it’s out of scope for that reason.</li>
         <li><strong>No invented store policy.</strong> Empty fields = honest miss. No POS scrape. Never claim “legal tender everywhere.”</li>
       </ul>
     </section>
 
     <div class="ad-slot" aria-hidden="true">
       <span class="ad-label">Ad slot (placeholder — AdSense later)</span>
-      <p>Inventory under the clock card + “when must Maryland stores take cash for essentials?” explainer · brand-safe display only · never inside PNG · not legal advice · hard-avoid class-action lead-gen · AG after ≥2 compliance chances only</p>
+      <p>Inventory under the clock card + “when must Maryland stores take cash for essentials?” explainer · brand-safe display only · never inside PNG · not legal advice · hard-avoid class-action lead-gen · AG Consumer Protection Division after at least two opportunities to comply (up to $500, then up to $1,000) only</p>
     </div>
 
     <footer>
@@ -229,7 +236,7 @@
         <li>Free utility · ad-supported path (see README) · no paywall</li>
       </ul>
     </footer>
-    <canvas id="pngCanvas" width="900" height="1200" hidden aria-hidden="true"></canvas>
+    <canvas id="pngCanvas" width="900" height="1500" hidden aria-hidden="true"></canvas>
   </div>
 </body>
 </html>

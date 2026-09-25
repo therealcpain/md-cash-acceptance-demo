@@ -1,11 +1,11 @@
 # MD Cash Acceptance Clock
 
-**Paste (1) Maryland shopper? yes/no, (2) category: food / water / hygiene-cleaning / health-PPE / fuel / other, (3) amount band: <$5 / $5–<$300 / ≥$300, (4) time: 6am–10pm / outside, (5) view date → one shareable card:**  
-giant **days until Oct 1 / live / not covered** · **covered essentials · $5–<$300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash** chip · **restaurants · vending · online · membership fuel · parking · >$20 bills · fee-free prepaid machine** exception strip · Maryland **HB 191** + **AG Consumer Protection** pointer (**≥2 compliance opportunities** before civil fines — **no private lawsuit CTA**).
+**Paste (1) Maryland shopper? yes/no, (2) category: food / water / hygiene-cleaning / health-PPE / fuel / other, (3) amount band: < $300 / ≥ $300, (4) time: 6am–10pm / outside, (5) view date → one shareable card:**  
+giant **days until Oct 1 / live / not covered** · **covered essentials · < $300 · 6am–10pm: merchant generally may not refuse cash, require card-only, or surcharge cash** chip · **up to 4 cents** when rounding a cash price under applicable law · statutory exceptions **phone/mail/internet · vending machines/kiosks · on-premises food/beverage or limited gourmet/specialty foods · membership-required fuel · >$20 bills · fee-free prepaid machine** · Maryland **HB 191** (Chapter 714 of 2026) + **AG Consumer Protection Division** pointer (after at least **two opportunities to comply**, up to **$500** per violation, then up to **$1,000** per subsequent violation — **no private lawsuit CTA**).
 
 Brand on the surface: **MD Cash Acceptance Clock** only (product-only; no Conglomerate / Brew City / personal names).
 
-**Not legal advice.** User-pasted chips only — zero merchant POS scrape. Never invent a named store’s cash policy. **Not** a “cash is legal tender everywhere” meme. **Distinct from** MD Grocery Price Ban (HB 895) and Parking App Fee (parking out of scope). **Hard-avoid** class-action lead-gen — AG after ≥2 compliance chances only.
+**Not legal advice.** User-pasted chips only — zero merchant POS scrape. Never invent a named store’s cash policy. **Not** a “cash is legal tender everywhere” meme. **Distinct from** MD Grocery Price Ban (HB 895) and Parking App Fee. Parking isn’t an essential good, so it’s out of scope for that reason. **Hard-avoid** class-action lead-gen — AG Consumer Protection Division after at least two opportunities to comply (up to $500, then up to $1,000) only.
 
 ## Hypothesis
 
@@ -28,7 +28,7 @@ Manual checklist:
 2. Click **Live · Oct 5 grocery** → **Live**.
 3. Click **Non-MD · not covered** → Not covered (non-MD).
 4. Click **Other category · not covered** → Not covered (category).
-5. Click **Under $5 · not covered** → Not covered (amount).
+5. Click **Under $5 · covered** → countdown (small total is still in the < $300 band).
 6. Click **Outside hours · not covered** → Not covered (hours).
 7. Click **Empty / missing date** → honest miss.
 8. Paste your own flags → **Show cash clock**.
@@ -56,14 +56,14 @@ Labeled teaching dates — not live merchant scrapes. Never invent a store’s c
 
 | Chip | Inputs | Teaching point |
 |------|--------|----------------|
-| MD grocery $40 · 2pm · Sep 21 | MD · food · mid · in · view 2026-09-21 | 10 days until Oct 1 |
-| Live · Oct 5 grocery | MD · food · mid · in · view 2026-10-05 | Live |
+| MD grocery $40 · 2pm · Sep 21 | MD · food · < $300 · in · view 2026-09-21 | 10 days until Oct 1 |
+| Live · Oct 5 grocery | MD · food · < $300 · in · view 2026-10-05 | Live |
 | Non-MD · not covered | mdShopper = no | Not covered (non-MD) |
 | Other category · not covered | category = other | Not covered (category) |
-| Under $5 · not covered | amountBand = under5 | Not covered (amount) |
+| Under $5 · covered | amountBand = under300 | Covered (no dollar floor; small total still in band) |
 | Outside hours · not covered | timeWindow = out | Not covered (hours) |
 | Empty / missing date | blank view date | Honest miss |
-| Health/PPE · Sep 21 · 10 days | MD · health · mid · in | Health category in scope |
+| Health/PPE · Sep 21 · 10 days | MD · health · < $300 · in | Health category in scope |
 
 ## Coverage logic (public statute framing)
 
@@ -72,13 +72,16 @@ Labeled teaching dates — not live merchant scrapes. Never invent a store’s c
 | Effective | **Oct 1 2026** (HB 191) |
 | Not MD | → **not covered (non-MD)** |
 | Category other | → **not covered (category)** |
-| Amount <$5 or ≥$300 | → **not covered (amount)** |
+| Amount < $300 | → in band (covered when the other gates pass) |
+| Amount ≥ $300 | → **not covered (amount)** |
 | Outside 6am–10pm | → **not covered (hours)** |
-| MD + essentials + mid + in + view &lt; Oct 1 | → **days until Oct 1** |
-| MD + essentials + mid + in + view ≥ Oct 1 | → **live** |
-| Scope | Food · water · hygiene · health/PPE · fuel · **$5–<$300** · **6am–10pm** |
-| Exceptions | Restaurants · vending · online · membership fuel · parking · **>$20** bills · fee-free prepaid machine |
-| Enforcement | AG Consumer Protection · **≥2 compliance opportunities** · **no private lawsuit CTA** |
+| MD + essentials + < $300 + in + view &lt; Oct 1 | → **days until Oct 1** |
+| MD + essentials + < $300 + in + view ≥ Oct 1 | → **live** |
+| Scope | Food · water · hygiene · health/PPE · fuel · **< $300** · **6am–10pm** |
+| Rounding | Up to **4 cents** extra when rounding a cash price under applicable law |
+| Exceptions | Phone/mail/internet · vending machines/kiosks · on-premises food/beverage or limited gourmet/specialty foods · membership-required fuel · **>$20** bills · fee-free prepaid machine |
+| Not an essential | Parking and other non-essentials are out of scope because they aren’t essential goods |
+| Enforcement | AG Consumer Protection Division · at least **two opportunities to comply** · up to **$500** per violation, then up to **$1,000** per subsequent violation · **no private lawsuit CTA** |
 | Distinct | ≠ HB 895 grocery price ban · ≠ Parking App Fee |
 | Pointers | HB 191 enrolled PDF · Bay Net Sep 5 2026 · fiscal note |
 
@@ -87,7 +90,7 @@ Labeled teaching dates — not live merchant scrapes. Never invent a store’s c
 | Path | Notes |
 |------|--------|
 | **Revenue (primary)** | **AdSense / display under the card + “when must Maryland stores take cash for essentials?” explainer** (not inside the PNG). Inventory spikes Sep 22–Oct 10. Justified when sessions cover hosting. Free card forever — **no paywall**, no Gumroad. |
-| **Brand-safe** | Informational clock + public HB 191 / Bay Net cites. **Not legal advice.** Ads **not** inside PNG. **Hard-avoid** class-action lead-gen affiliates. AG after ≥2 compliance chances only. |
+| **Brand-safe** | Informational clock + public HB 191 / Bay Net cites. **Not legal advice.** Ads **not** inside PNG. **Hard-avoid** class-action lead-gen affiliates. AG Consumer Protection Division after at least two opportunities to comply (up to $500, then up to $1,000) only. |
 | **Acquisition (gated)** | Google “Maryland cash payment law October 2026” / “HB 191 cash essential goods” + Reddit MD promo. Creative = “MD shopper? Paste time + cart band — cash-protected after Oct 1?”. Max CPA abort ~$0.30–0.50 without a completed share. Debit/cash only. **Spend only after one organic maryland-thread test.** |
 | **UTM** | Example: `?utm_source=reddit&utm_medium=organic&utm_campaign=md_cash_acceptance_mvp` |
 | **Tracking** | GoatCounter (`mdcashaccept.goatcounter.com`) from day 1 + card gens + share clicks when Pages is live. |
@@ -104,7 +107,7 @@ Labeled teaching dates — not live merchant scrapes. Never invent a store’s c
 - Share = URL hash + PNG + copy summary.
 - No merchant scrape. No lawsuit funnel. No Gumroad. No sock farms.
 - GoatCounter embedded in `<head>` from day 1.
-- Distinct JTBD from MD Grocery Price Ban and Parking App Fee.
+- Distinct JTBD from MD Grocery Price Ban and Parking App Fee. Parking isn’t an essential good under HB 191.
 
 ## Files
 
